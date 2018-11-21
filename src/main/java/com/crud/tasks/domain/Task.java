@@ -2,7 +2,8 @@ package com.crud.tasks.domain;
 
 import javax.persistence.*;
 
-@Entity(name = "tasks")
+@Entity
+@Table(name = "tasks")
 public class Task {
     private Long id;
     private String title;
