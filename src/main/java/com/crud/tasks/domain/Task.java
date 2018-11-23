@@ -29,7 +29,7 @@ public class Task {
         return title;
     }
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "CONTENT")
     public String getContent() {
         return content;
     }
