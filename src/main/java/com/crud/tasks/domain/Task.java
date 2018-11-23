@@ -20,7 +20,6 @@ public class Task {
 
     @Id
     @GeneratedValue
-    @Column(name = "ID")
     public Long getId() {
         return id;
     }
