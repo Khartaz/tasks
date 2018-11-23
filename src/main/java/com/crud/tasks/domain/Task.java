@@ -2,13 +2,17 @@ package com.crud.tasks.domain;
 
 import javax.persistence.*;
 
-@Table
 @Entity
+@Table(name = "tasks")
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "name")
     private String title;
+
+    @Column(name = "description")
     private String content;
 
     public Task() {
