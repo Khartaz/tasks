@@ -3,8 +3,10 @@ package com.crud.tasks.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tasks")
+@Table
 public class Task {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String content;
@@ -18,18 +20,14 @@ public class Task {
         this.content = content;
     }
 
-    @Id
-    @GeneratedValue
     public Long getId() {
         return id;
     }
 
-    @Column(name = "NAME")
     public String getTitle() {
         return title;
     }
 
-    @Column(name = "CONTENT")
     public String getContent() {
         return content;
     }
