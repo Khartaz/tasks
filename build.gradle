@@ -29,12 +29,12 @@ repositories {
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    //compile('mysql:mysql-connector-java')
+    // compile('mysql:mysql-connector-java')
     compile('org.postgresql:postgresql')
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 
-    compile group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
+    //compile group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
 
     //providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 
