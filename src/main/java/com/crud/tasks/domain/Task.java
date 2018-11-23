@@ -19,7 +19,7 @@ public class Task {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "ID")
     public Long getId() {
         return id;
