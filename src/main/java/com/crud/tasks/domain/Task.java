@@ -2,8 +2,8 @@ package com.crud.tasks.domain;
 
 import javax.persistence.*;
 
-@Entity
 @Table
+@Entity
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
