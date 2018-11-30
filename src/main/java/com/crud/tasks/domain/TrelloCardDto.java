@@ -5,19 +5,16 @@ public class TrelloCardDto {
     private String description;
     private String pos;
     private String listId;
-    private String badges;
-
 
     public TrelloCardDto() {
 
     }
 
-    public TrelloCardDto(String name, String description, String pos, String listId, String badges) {
+    public TrelloCardDto(String name, String description, String pos, String listId) {
         this.name = name;
         this.description = description;
         this.pos = pos;
         this.listId = listId;
-        this.badges = badges;
     }
 
     public String getName() {
@@ -52,11 +49,4 @@ public class TrelloCardDto {
         this.listId = listId;
     }
 
-    public String getBadges() {
-        return badges;
-    }
-
-    public void setBadges(String badges) {
-        this.badges = badges;
-    }
 }
