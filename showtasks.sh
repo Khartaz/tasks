@@ -10,11 +10,7 @@ end() {
 }
 
 setChrome() {
-   open -a "Google Chrome" http://localhost:8080/v1/task/getTasks
-}
-runTasksInBrowser() {
-
-  xdg-open http://localhost:8080/crud/v1/task/getTasks
+   open -a "Google Chrome" http://localhost:8080/crud/v1/task/getTasks
 }
 
 if ./runcrud.sh; then
