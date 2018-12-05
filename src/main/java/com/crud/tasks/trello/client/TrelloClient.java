@@ -19,7 +19,6 @@ import java.util.List;
 
 import static java.util.Optional.ofNullable;
 
-
 @Component
 public class TrelloClient {
     @Autowired
@@ -47,7 +46,6 @@ public class TrelloClient {
             LOGGER.error(e.getMessage(), e);
             return new ArrayList<>();
         }
-
     }
 
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto) {
