@@ -15,7 +15,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-//apply plugin: 'war'
+apply plugin: 'war'
 
 group = 'com.crud'
 version = '0.0.1-SNAPSHOT'
@@ -37,8 +37,6 @@ dependencies {
     compile('io.springfox:springfox-swagger-ui:2.7.0')
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-
-    //compile group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
 
     //providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 
