@@ -1,10 +1,10 @@
 package com.crud.tasks.controller;
 
 
-import com.crud.tasks.domain.CreatedTrelloCard;
+import com.crud.tasks.domain.CreatedTrelloCardDto;
 import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.TrelloCardDto;
-import com.crud.tasks.service.TrelloService;
+import com.crud.tasks.trello.facade.TrelloFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,29 +15,15 @@ import java.util.List;
 @RequestMapping("/v1/trello")
 public class TrelloController {
     @Autowired
-    private TrelloService trelloService;
+    private TrelloFacade trelloFacade;
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
     public List<TrelloBoardDto> getTrelloBoards() {
-       return trelloService.fetchTrelloBoards();
-
-       /*
-       List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-       trelloBoards.forEach(t ->  {
-           if (t.getName().contains("Kodilla")) {
-               System.out.println(t.getName() + " " + t.getId());
-
-               System.out.println("This board contains lists: ");
-
-               t.getLists().forEach(x ->
-                       System.out.println(x.getName() + " - " + x.getId() + " - " + x.isClosed()));
-           }
-       });
-       */
+       return trelloFacade.fetchTrelloBoards();
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
-    public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
-        return trelloService.createTrelloCard(trelloCardDto);
+    public CreatedTrelloCardDto createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
+        return trelloFacade.createCard(trelloCardDto);
     }
 }
