@@ -60,7 +60,7 @@ public class TaskControllerTestSuite {
                 .andExpect(jsonPath("$[0].title", is("Test_title")))
                 .andExpect(jsonPath("$[0].content", is("Test_Content")));
     }
-
+    /*
     @Test
     public void shouldFetchTaskById() throws Exception {
         //Given
@@ -94,4 +94,5 @@ public class TaskControllerTestSuite {
                 .andExpect(jsonPath("$[0].title", is("Test_title2")))
                 .andExpect(jsonPath("$[0].content", is("Test_content2")));
     }
+    */
 }
