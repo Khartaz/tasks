@@ -7,7 +7,6 @@ public class TrelloCard {
     private String listId;
 
     public TrelloCard() {
-
     }
 
     public TrelloCard(String name, String description, String pos, String listId) {

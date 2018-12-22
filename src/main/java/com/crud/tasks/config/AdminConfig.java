@@ -15,8 +15,4 @@ public class AdminConfig {
         return adminMail;
     }
 
-    public void setAdminMail(String adminMail) {
-        this.adminMail = adminMail;
-    }
-
 }

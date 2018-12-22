@@ -16,7 +16,6 @@ public class CreatedTrelloCardDto {
     private String shortUrl;
 
     public CreatedTrelloCardDto() {
-
     }
 
     public CreatedTrelloCardDto(String id, String name, String shortUrl) {
