@@ -19,6 +19,7 @@ import static org.hamcrest.Matchers.any;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -60,7 +61,7 @@ public class TaskControllerTestSuite {
                 .andExpect(jsonPath("$[0].title", is("Test_title")))
                 .andExpect(jsonPath("$[0].content", is("Test_Content")));
     }
-    /*
+
     @Test
     public void shouldFetchTaskById() throws Exception {
         //Given
@@ -94,5 +95,5 @@ public class TaskControllerTestSuite {
                 .andExpect(jsonPath("$[0].title", is("Test_title2")))
                 .andExpect(jsonPath("$[0].content", is("Test_content2")));
     }
-    */
+
 }
