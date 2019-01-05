@@ -15,6 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -92,7 +93,7 @@ public class TrelloFacadeTestSuite {
     }
 
     @Test
-    public void shouldCreateCard() {
+    public void shouldFetchCreateCard() {
         //Given
         TrelloCardDto trelloCardDto = new TrelloCardDto("test_name", "test_description", "test_pos", "test_listId");
         TrelloCard trelloCard = new TrelloCard("test_name", "test_description", "test_pos", "test_listId");
