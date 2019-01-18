@@ -11,6 +11,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SimpleEmailService {
     @Autowired
@@ -49,7 +51,7 @@ public class SimpleEmailService {
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()));
 
-        //Optional.ofNullable(mail.getToCc()).ifPresent(mailMessage::setCc);
+        Optional.ofNullable(mail.getToCc()).ifPresent(mailMessage::setCc);
 
         return mailMessage;
     }
