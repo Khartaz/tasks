@@ -9,6 +9,13 @@ public class AdminConfig {
     private String adminName;
     @Value("${admin.mail}")
     private String adminMail;
+    @Value("${info.app.owner.name}")
+    private String name;
+    @Value("${info.app.owner.surname}")
+    private String lastname;
+    @Value("${info.company.name}")
+    private String companyName;
+
 
     public AdminConfig() {
     }
@@ -19,5 +26,17 @@ public class AdminConfig {
 
     public String getAdminName() {
         return adminName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getCompanyName() {
+        return companyName;
     }
 }
