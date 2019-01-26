@@ -3,7 +3,7 @@ package com.crud.tasks.controller.facade;
 import com.crud.tasks.controller.TaskNotFoundException;
 import com.crud.tasks.domain.TaskDto;
 import com.crud.tasks.mapper.TaskMapper;
-import com.crud.tasks.service.DbService;
+import com.crud.tasks.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ public class TaskFacade {
     @Autowired
     private TaskMapper taskMapper;
     @Autowired
-    private DbService service;
+    private TaskService service;
 
     public List<TaskDto> getTasks() {
         return taskMapper.mapToTaskDtoList(service.getAllTasks());

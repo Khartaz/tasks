@@ -11,8 +11,6 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class SimpleEmailService {
     @Autowired
@@ -22,12 +20,25 @@ public class SimpleEmailService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleMailMessage.class);
 
-    public void send(final Mail mail) {
+    public void sendMimeMessage(final Mail mail) {
 
         LOGGER.info("Starting email preparation...");
         try {
 
             javaMailSender.send(createMimeMessage(mail));
+            LOGGER.info("Email has been sent.");
+        } catch (MailException e) {
+
+            LOGGER.error("Failed to process email sending: ", e.getMessage(), e);
+        }
+    }
+
+    public void sendInfoTaskMessage(final Mail mail) {
+
+        LOGGER.info("Starting email preparation...");
+        try {
+
+            javaMailSender.send(createInfoTaskMessage(mail));
             LOGGER.info("Email has been sent.");
         } catch (MailException e) {
 
@@ -44,15 +55,13 @@ public class SimpleEmailService {
         };
     }
 
-    private SimpleMailMessage createMailMessage(final Mail mail) {
 
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(mail.getMailTo());
-        mailMessage.setSubject(mail.getSubject());
-        mailMessage.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()));
-
-        Optional.ofNullable(mail.getToCc()).ifPresent(mailMessage::setCc);
-
-        return mailMessage;
+    private MimeMessagePreparator createInfoTaskMessage(final Mail mail) {
+        return mimeMessage -> {
+            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+            messageHelper.setTo(mail.getMailTo());
+            messageHelper.setSubject(mail.getSubject());
+            messageHelper.setText(mailCreatorService.buildInfoTaskEmail(mail.getMessage()), true);
+        };
     }
 }
