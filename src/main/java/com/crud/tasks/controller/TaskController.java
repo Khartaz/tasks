@@ -3,6 +3,9 @@ package com.crud.tasks.controller;
 import com.crud.tasks.controller.facade.TaskFacade;
 import com.crud.tasks.domain.TaskDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +23,12 @@ public class TaskController {
     public List<TaskDto> getTasks() {
         return taskFacade.getTasks();
     }
+
+//    @GetMapping(value = "/tasks", produces = APPLICATION_JSON_VALUE)
+//    public @ResponseBody
+//    Resources<TaskDto> getTasks() {
+//        return new Resources<>(taskFacade.getTasks());
+//    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/tasks/{taskId}")
     public TaskDto getTask(@PathVariable Long taskId) throws TaskNotFoundException {
